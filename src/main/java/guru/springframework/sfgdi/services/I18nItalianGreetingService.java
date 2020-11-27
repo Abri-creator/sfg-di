@@ -4,7 +4,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /*Beacuse of this Profile we are able to load which bean we want even if they have the same name*/
-@Profile("IT")
+/*If there is no active profiles set the default profile beans that are annotated that way will be wired into the context*/
+@Profile({"IT", "default"})
 /*In this way we are giving the name of the qualifier */
 @Service("i18nService")
 public class I18nItalianGreetingService implements GreetingService {
